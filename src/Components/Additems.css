@@ -1,0 +1,13 @@
+.inp-container {
+  display: flex;
+  width: 350px;
+  margin-bottom: 10px;
+
+}
+
+.inp {
+  width: 100%;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 7px;
+}
