@@ -3,26 +3,21 @@ import React from 'react'
 import './Additems.css'
 import List from './List'
 
+const getItems = () => {
+  const storedTasks = localStorage.getItem('tasks');
+  if (storedTasks) {
+    return JSON.parse(localStorage.getItem('tasks'));
+  } else {
+    return [];
+  }
+}
+
+
 const Additems = () => {
 
   const [text, setText] = useState('')
-  const [tasks, setTask] = useState([
-    {
-      id: 1,
-      text: "Food",
-      isEdit: false,
-    }
-  ])
+  const [tasks, setTask] = useState(getItems());
 
-  // Load tasks from localStorage on component mount
-  useEffect(() => {
-    const storedTasks = localStorage.getItem('tasks');
-    if (storedTasks) {
-      setTask(JSON.parse(storedTasks));
-    }
-  }, []);
-
-  // Save tasks to localStorage on state change
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);

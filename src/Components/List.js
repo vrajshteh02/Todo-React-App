@@ -10,7 +10,15 @@ const List = ({ task, deleteTask, editTask, updateTask, isEdit }) => {
   };
 
   const handleUpdate = () => {
-    updateTask(task.id, editText);
+
+    if (editText) {
+      updateTask(task.id, editText);
+    } else {
+      alert("Edit")
+
+    }
+
+
   };
 
   return (
@@ -33,7 +41,7 @@ const List = ({ task, deleteTask, editTask, updateTask, isEdit }) => {
             {isEdit ? 'Save' : 'Edit'}
           </button> */}
           {isEdit ? (
-            <button className='btn btn-success mx-1' type="button" onClick={handleUpdate}>Save</button>
+            <button className='btn btn-success mx-1' id="primary" data-mdb-button-init data-mdb-ripple-init type="button" onClick={handleUpdate}>Save</button>
           ) :
             (<button className='btn btn-success mx-1' type="button" onClick={handleEdit}>Edit</button>)}
 
