@@ -72,4 +72,4 @@ const Additems = () => {
   )
 }
 
-export default Additems
+export default Additems;
